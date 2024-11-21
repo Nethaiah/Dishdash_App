@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DishDash</string>
+    <string name="client_id">161862658750-480469p0hvon6e93gtma90di94oirhen.apps.googleusercontent.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

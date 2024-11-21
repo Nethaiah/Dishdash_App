@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:paddingHorizontal="10dp"
+            android:id="@+id/homeSearchByIngredientsLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <SearchView
+                android:id="@+id/homeSearchByIngredients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/search_view_bg"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search by Ingredients"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingHorizontal="10dp"
+            android:id="@+id/mealTypesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSearchByIngredientsLinear">
+
+            <TextView
+                android:textColor="@color/text_color"
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center_vertical"
+                android:text="Meal Types"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:textColor="@color/text_color"
+                    android:id="@+id/radioMealTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAnyMeal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Any"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioMainCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Main course"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSideDish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Side dish"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioDessert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Dessert"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAppetizer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Appetizer"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSalad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Salad"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioBread"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Bread"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioBreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Breakfast"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSoup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Soup"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioBeverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Beverage"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSauce"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Sauce"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioMarinade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Marinade"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioFingerFood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="FingerFood"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSnack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Snack"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Drink"
+                        tools:ignore="HardcodedText" />
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingHorizontal="10dp"
+            android:id="@+id/dietTypesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mealTypesContainer">
+
+            <TextView
+                android:textColor="@color/text_color"
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center_vertical"
+                android:text="Diet Types"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:textColor="@color/text_color"
+                    android:id="@+id/radioDietTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAnyDiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Any"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioGlutenFree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Gluten Free"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioKetogenic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Ketogenic"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioVegetarian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Vegetarian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioLactoVegetarian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Lacto Vegetarian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioOvoVegetarian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Ovo Vegetarian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioVegan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Vegan"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioPescetarian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Pescetarian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioPalio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Palio"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioLowFodmap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Low FODMAP"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioWhole30"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Whole 30"
+                        tools:ignore="HardcodedText" />
+
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingHorizontal="10dp"
+            android:id="@+id/cuisineTypesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dietTypesContainer">
+
+            <TextView
+                android:textColor="@color/text_color"
+                android:id="@+id/textViewCuisine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center_vertical"
+                android:text="Cuisine Types"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:textColor="@color/text_color"
+                    android:id="@+id/radioCuisineTypes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAnyCuisine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Any"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAfrican"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="African"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAsian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Asian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioAmerican"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="American"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioBritish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="British"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioCajun"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Cajun"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioCaribbean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Caribbean"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioChinese"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Chinese"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioEasternEuropean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Eastern European"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioEuropean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="European"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioFrench"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="French"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioGerman"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="German"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioGreek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Greek"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioIndian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Indian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioIrish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Irish"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioItalian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Italian"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioJapanese"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Japanese"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioJewish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Jewish"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioKorean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Korean"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioLatinAmerican"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Latin American"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioMediterranean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Mediterranean"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioMexican"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Mexican"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioMiddleEastern"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Middle Eastern"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioNordic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Nordic"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSouthern"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Southern"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioSpanish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Spanish"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioThai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Thai"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:textColor="@color/text_color"
+                        android:id="@+id/radioVietnamese"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Vietnamese"
+                        tools:ignore="HardcodedText" />
+
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+
+        <TextView
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/text_color"
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Recommended Recipes"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cuisineTypesContainer"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRandomRecipeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_color"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Add Recipe"
+        android:src="@drawable/plus"
+        android:layout_gravity="bottom|end"
+        tools:ignore="HardcodedText" />
+</FrameLayout>

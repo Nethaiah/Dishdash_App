@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_color">#FAFAFA</color>
+    <color name="error_message">#F44336</color>
+    <color name="success_message">#4CAF50</color>
+    <color name="recipe_card_view_bg_color">#F7F7F7</color>
+    <color name="text_color">#333333</color>
+    <color name="nav_bg_color">#F2F2F2</color>
+    <color name="main_button_bg_color">#007BFF</color>
+    <color name="text_color_white">#FAFAFA</color>
+</resources>

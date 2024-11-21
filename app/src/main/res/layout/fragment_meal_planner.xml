@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".MealPlannerFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="@color/bg_color"
+        android:paddingBottom="20dp">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/generateMealPlanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:text="Daily Meal Planner"
+                    android:textColor="@color/text_color"
+                    android:textSize="28sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/setDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:text="Set Date"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/bg_color"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/mealPlannerRecipeRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:scrollbars="none" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/mealPlannerRecipeNutritionRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:nestedScrollingEnabled="false"
+                        android:scrollbars="none" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:layout_marginHorizontal="10dp"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:backgroundTint="@color/main_button_bg_color"
+            android:textColor="@color/text_color_white"
+            android:paddingVertical="10dp"
+            android:id="@+id/generateMealPlanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:letterSpacing="0.1"
+            android:text="Generate Daily Meal Planner"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

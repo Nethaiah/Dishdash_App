@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeRandomRecipeCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="20dp"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/recipe_card_view_bg_color"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/homeRandomRecipeImage"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            app:shapeAppearanceOverlay="@style/listRandomRecipeHomeCardView"
+            android:layout_weight="1"
+            android:contentDescription="Random Recipe Image"
+            android:scaleType="centerCrop"
+            tools:ignore="HardcodedText"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/text_color"
+                android:id="@+id/randomRecipeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins_bold"
+                android:letterSpacing="0.1"
+                android:text="Recipe Title"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="Ready in: "
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/randomRecipeReadyIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="TextView"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="Serving: "
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/randomRecipeServing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="TextView"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="Rating: "
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:textColor="@color/text_color"
+                    android:id="@+id/randomRecipeScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:text="TextView"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

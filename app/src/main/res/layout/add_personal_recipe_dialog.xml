@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="10dp"
+    android:id="@+id/detailedRecipeCardView">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/recipe_card_view_bg_color"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/recipe_card_view_bg_color"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:background="@color/recipe_card_view_bg_color"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:id="@+id/personalRecipeImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:contentDescription="Detailed recipe image"
+                    android:scaleType="centerCrop"
+                    tools:ignore="HardcodedText"
+                    tools:srcCompat="@drawable/recipe_place_holder" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="8dp"
+                    android:contentDescription="Back Button"
+                    app:srcCompat="@drawable/previous"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    android:letterSpacing="0.1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="20sp"
+                    android:text="Recipe Name:"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:textColor="@color/text_color"
+                        android:id="@+id/personalRecipeName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:inputType="text"
+                        android:hint="Enter Recipe Name"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/textView21"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        android:letterSpacing="0.1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:text="Ingredients"
+                        tools:ignore="HardcodedText" />
+
+                    <Button
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:paddingVertical="10dp"
+                        android:backgroundTint="@color/main_button_bg_color"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:letterSpacing="0.1"
+                        android:textColor="@color/text_color_white"
+                        android:id="@+id/personalRecipeAddIngredients"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Ingredients"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginBottom="15dp"
+                    android:id="@+id/personalRecipeIngredientsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/textView22"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        android:letterSpacing="0.1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:text="Instructions"
+                        tools:ignore="HardcodedText" />
+
+                    <Button
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:paddingVertical="10dp"
+                        android:backgroundTint="@color/main_button_bg_color"
+                        android:textColor="@color/text_color_white"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_medium"
+                        android:letterSpacing="0.1"
+                        android:id="@+id/personalRecipeAddInstructions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Instructions"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginBottom="15dp"
+                    android:id="@+id/personalRecipeInstructionRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    app:icon="@drawable/add_personal_recipe_icon"
+                    android:paddingVertical="10dp"
+                    android:backgroundTint="@color/main_button_bg_color"
+                    android:textColor="@color/text_color_white"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:id="@+id/addPersonalRecipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Recipe"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Home"
+        android:id="@+id/navHome"
+        android:icon="@drawable/home"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:title="Recipe"
+        android:id="@+id/navPersonalRecipe"
+        android:icon="@drawable/food"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:title="Favorites"
+        android:id="@+id/navFavorites"
+        android:icon="@drawable/heart"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:title="Planner"
+        android:id="@+id/navMealPlanner"
+        android:icon="@drawable/cloche"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:title="Profile"
+        android:id="@+id/navProfile"
+        android:icon="@drawable/profile"
+        tools:ignore="HardcodedText" />
+</menu>

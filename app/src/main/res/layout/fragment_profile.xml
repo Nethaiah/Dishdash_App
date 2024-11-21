@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="50dp"
+        android:background="@color/bg_color">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="70dp"
+            android:contentDescription="Profile Picture"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/deleteAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userEmail">
+
+            <Button
+                android:id="@+id/editAccount"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:letterSpacing="0.1"
+                android:text="Edit profile"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:icon="@drawable/edit_profile"
+                app:iconPadding="20dp"
+                app:iconSize="25dp"
+                app:iconTint="#3A3A3A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="HardcodedText"
+                tools:layout_editor_absoluteY="341dp" />
+
+            <Button
+                android:id="@+id/privacyPolicy"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:letterSpacing="0.1"
+                android:text="Privacy Policy"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:icon="@drawable/privacy_policy"
+                app:iconPadding="20dp"
+                app:iconSize="25dp"
+                app:iconTint="#3A3A3A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editAccount"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/termsAndConditions"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:letterSpacing="0.1"
+                android:text="Terms &amp; Conditions"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:icon="@drawable/terms_and_conditions"
+                app:iconPadding="20dp"
+                app:iconSize="25dp"
+                app:iconTint="#3A3A3A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyPolicy"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <Button
+            android:textColor="@color/error_message"
+            android:textSize="16sp"
+            app:icon="@drawable/exit"
+            app:iconPadding="20dp"
+            app:iconSize="25dp"
+            app:iconTint="#F44336"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:id="@+id/profileLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:letterSpacing="0.1"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Log Out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/profileForgotPassword"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:letterSpacing="0.1"
+            android:paddingVertical="10dp"
+            android:text="Forgot Password"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/profileLogOut"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/deleteAccount"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/error_message"
+            android:fontFamily="@font/poppins_semibold"
+            android:letterSpacing="0.1"
+            android:paddingVertical="10dp"
+            android:text="Delete Account"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/profileForgotPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="18sp"
+            android:letterSpacing="0.1"
+            android:id="@+id/userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+            tools:ignore="HardcodedText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favoriteRecipeCardView"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="20dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/favoriteRecipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/recipe_card_view_bg_color"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/listRandomRecipeHomeCardView"
+            android:id="@+id/favoriteRecipeImage"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:contentDescription="Favorite Recipe Image"
+            android:scaleType="centerCrop"
+            tools:ignore="HardcodedText"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="HardcodedText">
+
+            <TextView
+                android:id="@+id/favoriteRecipeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins_bold"
+                android:letterSpacing="0.1"
+                android:text="Recipe Title"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:text="Ready in: "
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/favoriteRecipeReadyIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:text="TextView"
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:letterSpacing="0.1"
+                    android:text="Serving: "
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/favoriteRecipeServing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:letterSpacing="0.1"
+                    android:text="TextView"
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:textColor="@color/text_color_white"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:backgroundTint="@color/main_button_bg_color"
+                    android:paddingVertical="10dp"
+                    app:icon="@drawable/delete_from_fav"
+                    android:id="@+id/removeFromFavorites"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.1"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Remove" />
+
+                <ImageView
+                    android:id="@+id/generateRecipeCard"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="recipe card"
+                    app:srcCompat="@drawable/image_gallery" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "161862658750",
+    "firebase_url": "https://dishdash-b88ef-default-rtdb.firebaseio.com",
+    "project_id": "dishdash-b88ef",
+    "storage_bucket": "dishdash-b88ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161862658750:android:1d579cc33b3e3aa6fdccef",
+        "android_client_info": {
+          "package_name": "com.example.dishdash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161862658750-480469p0hvon6e93gtma90di94oirhen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfUyIukkJv7bDuJvqfjSJn0PcpCMNvg9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161862658750-480469p0hvon6e93gtma90di94oirhen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
