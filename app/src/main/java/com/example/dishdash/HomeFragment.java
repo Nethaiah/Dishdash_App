@@ -5,9 +5,11 @@ import static android.app.Activity.RESULT_OK;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -574,6 +576,11 @@ public class HomeFragment extends Fragment {
     private void getRandomRecipes() {
         String tagsString = String.join(",", tags);
 
+        if (!isNetworkAvailable()) {
+            Toast.makeText(requireContext(), "No internet connection", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (randomRecipeViewModel.shouldFetch(tagsString)) {
             randomRecipeManager.getRandomRecipes(new RandomRecipeResponseListener() {
                 @Override
@@ -585,11 +592,22 @@ public class HomeFragment extends Fragment {
 
                 @Override
                 public void didError(String message) {
-                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                    if (isAdded() && getContext() != null) {
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e("RandomRecipe", "Cannot show Toast. Fragment is not attached. Error: " + message);
+                    }
                 }
             }, tagsString);
         }
     }
+
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
 
     private void getSearchRecipes(String ingredients) {
         searchRecipeManager.getSearchRecipes(new SearchRecipeResponseListener() {

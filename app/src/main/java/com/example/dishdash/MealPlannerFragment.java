@@ -289,9 +289,9 @@ public class MealPlannerFragment extends Fragment {
             mealPlannerLunchTime = generateMealPlanDialogView.findViewById(R.id.mealPlannerLuchTime);
             mealPlannerDinnerTime = generateMealPlanDialogView.findViewById(R.id.mealPlannerDinnerTime);
 
-            mealPlannerBreakfastTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerBreakfastTime));
-            mealPlannerLunchTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerLunchTime));
-            mealPlannerDinnerTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerDinnerTime));
+            mealPlannerBreakfastTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerBreakfastTime, "Breakfast"));
+            mealPlannerLunchTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerLunchTime, "Lunch"));
+            mealPlannerDinnerTimeTimePicker.setOnClickListener(v1 -> showTimePicker(mealPlannerDinnerTime, "Dinner"));
         });
     }
 
@@ -348,7 +348,7 @@ public class MealPlannerFragment extends Fragment {
         datePickerDialog.show();
     }
 
-    private void showTimePicker(TextView timeTextView) {
+    private void showTimePicker(TextView timeTextView, String mealType) {
         Calendar calendar = Calendar.getInstance();
         TimePickerDialog timePickerDialog = new TimePickerDialog(requireContext(), (view, hourOfDay, minute) -> {
             String period = (hourOfDay < 12) ? "AM" : "PM";
@@ -364,30 +364,46 @@ public class MealPlannerFragment extends Fragment {
             int selectedTimeInMinutes = convertTimeToMinutes(hourOfDay, minute);
 
             boolean isValid = true;
-            for (String existingTime : selectedTimes) {
-                // Get the existing time in minutes
-                String[] timeParts = existingTime.split(":| ");
-                int hour = Integer.parseInt(timeParts[0]);
-                int min = Integer.parseInt(timeParts[1]);
-                int existingTimeInMinutes = convertTimeToMinutes(hour + (timeParts[2].equals("PM") && hour != 12 ? 12 : 0), min);
 
-                // Check the difference between selected time and existing time
-                if (Math.abs(selectedTimeInMinutes - existingTimeInMinutes) < 180) {
-                    isValid = false;
-                    break;
-                }
+            // Validate based on meal type (Breakfast, Lunch, Dinner)
+            if (mealType.equals("Breakfast") && period.equals("PM")) {
+                isValid = false;  // Breakfast can only be AM
+            } else if (mealType.equals("Dinner") && period.equals("AM")) {
+                isValid = false;  // Dinner can only be PM
             }
 
             if (isValid) {
-                // Add the new time to selectedTimes and update the TextView
-                selectedTimes.add(formattedTime);
-                timeTextView.setText(formattedTime);
+                // Check if the selected time is at least 3 hours apart from existing times
+                for (String existingTime : selectedTimes) {
+                    String[] timeParts = existingTime.split(":| ");
+                    int hour = Integer.parseInt(timeParts[0]);
+                    int min = Integer.parseInt(timeParts[1]);
+                    int existingTimeInMinutes = convertTimeToMinutes(hour + (timeParts[2].equals("PM") && hour != 12 ? 12 : 0), min);
+
+                    if (Math.abs(selectedTimeInMinutes - existingTimeInMinutes) < 180) {
+                        isValid = false;
+                        break;
+                    }
+                }
+
+                if (isValid) {
+                    // Add the new time to selectedTimes and update the TextView
+                    selectedTimes.add(formattedTime);
+                    timeTextView.setText(formattedTime);
+                } else {
+                    // Re-add the current time to selectedTimes if the new time is invalid
+                    if (!currentTextViewTime.isEmpty()) {
+                        selectedTimes.add(currentTextViewTime);
+                    }
+                    Toast.makeText(requireContext(), "The selected time must be at least 3 hours apart from other times.", Toast.LENGTH_SHORT).show();
+                }
             } else {
+                // If time is not valid for the given meal type, show an error
+                Toast.makeText(requireContext(), "Invalid time for " + mealType + ". Please select the correct time period (AM/PM).", Toast.LENGTH_SHORT).show();
                 // Re-add the current time to selectedTimes if the new time is invalid
                 if (!currentTextViewTime.isEmpty()) {
                     selectedTimes.add(currentTextViewTime);
                 }
-                Toast.makeText(requireContext(), "The selected time must be at least 3 hours apart from other times.", Toast.LENGTH_SHORT).show();
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false);
 

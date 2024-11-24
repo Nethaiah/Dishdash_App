@@ -3,10 +3,15 @@ package com.example.dishdash;
 import static android.app.Activity.RESULT_OK;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -44,6 +49,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -256,17 +263,23 @@ public class ProfileFragment extends Fragment {
 
             yesButton.setOnClickListener(logOutView -> {
                 auth = FirebaseAuth.getInstance();
-                String providerId = auth.getCurrentUser().getProviderData().get(1).getProviderId();
+
+                if (!isConnectedToInternet(getContext())) {
+                    Toast.makeText(getContext(), "No internet connection.", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    return;
+                }
+
+                user = auth.getCurrentUser();
+
+                String providerId = user.getProviderData().get(1).getProviderId();
 
                 if (providerId.equals("password")) {
                     auth.signOut();
-
                     startActivity(new Intent(getActivity(), Register.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                     requireActivity().finish();
                     dialog.dismiss();
-                }
-
-                else if (providerId.equals("google.com")) {
+                } else if (providerId.equals("google.com")) {
                     auth.signOut();
                     googleSignInClient.revokeAccess().addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -280,6 +293,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         });
+
 
         binding.deleteAccount.setOnClickListener(v -> {
             deleteAccountDialogView = LayoutInflater.from(getContext()).inflate(R.layout.delete_account_dialog, null);
@@ -295,6 +309,13 @@ public class ProfileFragment extends Fragment {
 
             yesButton.setOnClickListener(deleteAccountView -> {
                 auth = FirebaseAuth.getInstance();
+
+                if (!isConnectedToInternet(getContext())) {
+                    Toast.makeText(getContext(), "No internet connection.", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    return;
+                }
+
                 db = FirebaseDatabase.getInstance();
                 databaseReference = db.getReference("Users");
                 String userId = auth.getCurrentUser().getUid();
@@ -319,6 +340,13 @@ public class ProfileFragment extends Fragment {
             });
         });
     }
+
+    private boolean isConnectedToInternet(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 
     private String encodeImageToBase64(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
